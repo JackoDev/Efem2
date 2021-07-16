@@ -1,0 +1,28 @@
+<%= simple_form_for @efemeride do |f| %>
+  <% if efemeride.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(efemeride.errors.count, "error") %> prohibited this efemeride from being saved:</h2>
+
+      <ul>
+        <% efemeride.errors.each do |error| %>
+          <li><%= error.full_message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <%= f.label :Fecha %>
+  <%= f.input :created_at %>
+  <%= f.label :Texto %>
+  <%= f.input :texto %>
+  <%= f.label :Categoria %>
+
+  <%= f.collection_select :category_ids, Category.all, :id, :name %>
+
+
+
+
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

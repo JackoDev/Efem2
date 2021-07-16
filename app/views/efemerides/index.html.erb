@@ -1,0 +1,31 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Efemerides</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Fecha</th>
+      <th>Texto</th>
+      <th>Thumbnail</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @efemerides.each do |efemeride| %>
+      <tr>
+        <td><%= efemeride.created_at %></td>
+        <td><%= efemeride.text %></td>
+
+        <td><%= link_to 'Show', efemeride %></td>
+        <td><%= link_to 'Edit', edit_efemeride_path(efemeride) %></td>
+        <td><%= link_to 'Destroy', efemeride, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Efemeride', new_efemeride_path %>
